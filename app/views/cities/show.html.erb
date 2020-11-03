@@ -4,3 +4,9 @@
 
 <h2><%= @output %></h2>
 
+<% @search.each do | search | %>
+    <p><%= search[:search] %></p>
+<% end %>
+
+
+

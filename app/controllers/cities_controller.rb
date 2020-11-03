@@ -12,6 +12,16 @@ class CitiesController < ApplicationController
         @uri = URI(@url)
         @response = Net::HTTP.get(@uri)
         @output = JSON.parse(@response)
+
         @temp = @output[:main.to_s][:temp.to_s]
+
+        add
+
+        @search = Search.order(id: :desc).limit(3)
     end
+
+    def add
+        Search.create(search: params[:name.to_s]&.downcase)
+    end
+
 end
