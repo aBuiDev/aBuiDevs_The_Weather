@@ -1,4 +1,7 @@
 class CitiesController < ApplicationController
+
+    before_action :dad_joke
+
     def search
         redirect_to city_path(name: params[:name])
     end
@@ -30,6 +33,14 @@ class CitiesController < ApplicationController
         add
 
         @search = Search.order(id: :desc).limit(3)
+    end
+
+    def dad_joke
+        # Random Dad Joke Generator
+        @dad_joke_url = "https://us-central1-dadsofunny.cloudfunctions.net/DadJokes/random/jokes"
+        @dad_joke_uri = URI(@dad_joke_url)
+        @dad_joke_response = Net::HTTP.get(@dad_joke_uri)
+        @dad_joke_output = JSON.parse(@dad_joke_response)
     end
 
 

@@ -2,10 +2,6 @@
 
 <h2>Current Temp: <%= (@temp.to_f - 273.15).round(2) %>°C</h2>
 
-<% @forecast_output["list"].each do | day | %>
-    <p><%= day %></p>
-<% end %>
-
 <h2><%= @output %></h2>
 
 <% @search.each do | search | %>
@@ -13,8 +9,25 @@
 <% end %>
 
 
+<%= @total[9] %>
+
+<br>
+
 
 <%= @total[9]["dt_txt"] %>
+<br>
+<img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png">
+<br>
+<%= @total[9]["weather"][0]["description"] %>
+<br>
+<%= @total[9]["main"]["temp"] %>
+<br>
+<%= @total[9]["main"]["temp_min"] %>
+<br>
+<%= @total[9]["main"]["temp_max"] %>
+<br>
+<%= @total[9]["main"]["humidity"] %>
+<br>
 
 <br>
 
@@ -35,5 +48,8 @@
 <br>
 
 <%= link_to "Back", "/" %>
+
+<%= @dad_joke_output["setup"] %>
+<%= @dad_joke_output["setup"] %>
 
 
