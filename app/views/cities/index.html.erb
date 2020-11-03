@@ -1,0 +1,12 @@
+<h1>The A Team | Weather Forecast</h1>
+<%= form_with url: cities_search_path, method: :get, local: true do |form| %>
+ <%= form.label :name %>
+ <%= form.text_field :name %>
+ <%= form.submit "Submit" %>
+<% end %>
+
+<%#= form_tag("/city", method: "post") do %>
+    <%#= label_tag(:q, "City") %>
+    <%#= hidden_field_tag(:city, params[:city.to_s])%>
+    <%#= submit_tag("Change") %>
+<%# end %>
