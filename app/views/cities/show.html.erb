@@ -2,11 +2,38 @@
 
 <h2>Current Temp: <%= (@temp.to_f - 273.15).round(2) %>°C</h2>
 
+<% @forecast_output["list"].each do | day | %>
+    <p><%= day %></p>
+<% end %>
+
 <h2><%= @output %></h2>
 
 <% @search.each do | search | %>
     <p><%= search[:search] %></p>
 <% end %>
 
+
+
+<%= @total[9]["dt_txt"] %>
+
+<br>
+
+<%= @total[17]["dt_txt"] %>
+
+<br>
+
+<%= @total[25]["dt_txt"] %>
+
+<br>
+
+<%= @total[33]["dt_txt"] %>
+
+<br>
+
+<%= @total[39]["dt_txt"] %>
+
+<br>
+
+<%= link_to "Back", "/" %>
 
 
