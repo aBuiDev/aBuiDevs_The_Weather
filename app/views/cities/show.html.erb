@@ -1,18 +1,21 @@
-<h1><%= @city %> Weather Forecast</h1>
+<h1><%= @city %> Weather</h1>
 
-<h2>Current Temp: <%= (@temp.to_f - 273.15).round(2) %>°C</h2>
-
-<h2><%= @output %></h2>
-
-<% @search.each do | search | %>
-    <p><%= search[:search] %></p>
-<% end %>
+<h2>Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
 
 
-<%= @total[9] %>
+<img src="http://openweathermap.org/img/w/<%= @output["weather"][0]["icon"] %>.png">
+<h2><%= @output["weather"][0]["description"] %></h2>
+<h2><%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
+<h2><%= (@output["main"]["feels_like"].to_f - 273.15).round(2) %>°C</h2>
+<h2><%= (@output["main"]["temp_min"].to_f - 273.15).round(2) %>°C</h2>
+<h2><%= (@output["main"]["temp_max"].to_f - 273.15).round(2) %>°C</h2>
+<h2><%= @output["main"]["humidity"] %></h2>
 
 <br>
 
+<h2><%= @city %> 5 Day Forecast</h2>
+
+<br>
 
 <%= @total[9]["dt_txt"] %>
 <br>
@@ -20,36 +23,99 @@
 <br>
 <%= @total[9]["weather"][0]["description"] %>
 <br>
-<%= @total[9]["main"]["temp"] %>
+<%= (@total[9]["main"]["temp"].to_f - 273.15).round(2) %>°C
 <br>
-<%= @total[9]["main"]["temp_min"] %>
+<%= (@total[9]["main"]["temp_min"].to_f - 273.15).round(2) %>°C
 <br>
-<%= @total[9]["main"]["temp_max"] %>
+<%= (@total[9]["main"]["temp_max"].to_f - 273.15).round(2) %>°C
 <br>
 <%= @total[9]["main"]["humidity"] %>
 <br>
 
 <br>
 
-<%= @total[17]["dt_txt"] %>
+<%= @total[15]["dt_txt"] %>
+<br>
+<img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png">
+<br>
+<%= @total[15]["weather"][0]["description"] %>
+<br>
+<%= (@total[15]["main"]["temp"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[15]["main"]["temp_min"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[15]["main"]["temp_max"].to_f - 273.15).round(2) %>°C
+<br>
+<%= @total[15]["main"]["humidity"] %>
+<br>
 
 <br>
 
 <%= @total[25]["dt_txt"] %>
+<br>
+<img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png">
+<br>
+<%= @total[25]["weather"][0]["description"] %>
+<br>
+<%= (@total[25]["main"]["temp"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[25]["main"]["temp_min"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[25]["main"]["temp_max"].to_f - 273.15).round(2) %>°C
+<br>
+<%= @total[25]["main"]["humidity"] %>
+<br>
 
 <br>
 
 <%= @total[33]["dt_txt"] %>
+<br>
+<img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png">
+<br>
+<%= @total[33]["weather"][0]["description"] %>
+<br>
+<%= (@total[33]["main"]["temp"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[33]["main"]["temp_min"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[33]["main"]["temp_max"].to_f - 273.15).round(2) %>°C
+<br>
+<%= @total[33]["main"]["humidity"] %>
+<br>
 
 <br>
 
 <%= @total[39]["dt_txt"] %>
+<br>
+<img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png">
+<br>
+<%= @total[39]["weather"][0]["description"] %>
+<br>
+<%= (@total[39]["main"]["temp"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[39]["main"]["temp_min"].to_f - 273.15).round(2) %>°C
+<br>
+<%= (@total[39]["main"]["temp_max"].to_f - 273.15).round(2) %>°C
+<br>
+<%= @total[39]["main"]["humidity"] %>
+<br>
 
 <br>
 
 <%= link_to "Back", "/" %>
 
+<br>
+
 <%= @dad_joke_output["setup"] %>
-<%= @dad_joke_output["setup"] %>
+<br>
+<%= @dad_joke_output["punchline"] %>
+
+<br>
+
+<h2> Recent Searches </h2>
+
+<% @search.each do | search | %>
+    <p><%= search[:search] %></p>
+<% end %>
 
 
