@@ -1,12 +1,24 @@
-<h1>The A Team | Weather Forecaster</h1>
-<%= form_with url: cities_search_path, method: :get, local: true do |form| %>
- <%= form.label :name %>
- <%= form.text_field :name %>
- <%= form.submit "Submit" %>
-<% end %>
 
-<%= @dad_joke_output["setup"] %>
-<br>
-<%= @dad_joke_output["punchline"] %>
+<section class="mainPageBackground">
+    <section class="dadJokeSection">
+            <h2 class="mainHeadingOne">The A Team</h2>
+            <h1 class="mainHeadingTwo">Weather Forecaster</h1>
+    </section>
+    <section class="mainPageContentBox">
+        <section class="mainPageContentBoxElements">
+            <%= form_with url: cities_search_path, method: :get, local: true do |form| %>
+                <section class="formCitySubmit">
+                    <%= form.label :City, class: "formLabel" %>
+                    <%= form.text_field :name, class: "formInput" %>
+                    <%= form.submit "Check Weather", class: "formSubmitButton" %>
+                </section>
+            <% end %>
+        </section>
+    </section>
+    <section class="dadJokeSection">
+        <p class="dadJokeSetup"><%= @dad_joke_output["setup"] %></p>
+        <p class="dadJokePunchline"><%= @dad_joke_output["punchline"] %></p>
+    </section>
+</section>
 
 

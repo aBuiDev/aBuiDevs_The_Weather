@@ -11,6 +11,7 @@ class CitiesController < ApplicationController
         require 'json'
 
         @city = params[:name.to_s]
+        @color = ""
 
         # Current Weather
         @url = "https://api.openweathermap.org/data/2.5/weather?q=#{@city}&appid=b3de74108cc43d86835f3312a5074990"
@@ -31,6 +32,12 @@ class CitiesController < ApplicationController
         @total = @forecast_output["list"]
 
         add
+        
+        if @output["weather"][0]["main"].to_s == "Clouds"
+            @color = "blue"
+        elsif @output["weather"][0]["main"].to_s == "Raining"
+            @color = "black"
+        end
 
         @search = Search.order(id: :desc).limit(3)
     end
@@ -42,8 +49,6 @@ class CitiesController < ApplicationController
         @dad_joke_response = Net::HTTP.get(@dad_joke_uri)
         @dad_joke_output = JSON.parse(@dad_joke_response)
     end
-
-
 
     def add
         Search.create(search: params[:name.to_s])

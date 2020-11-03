@@ -1,7 +1,10 @@
+<section style="background-color:<% @color %>">
+
 <h1><%= @city %> Weather</h1>
 
 <h2>Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
 
+<h2><%= @output["weather"][0] %></h2>
 
 <img src="http://openweathermap.org/img/w/<%= @output["weather"][0]["icon"] %>.png">
 <h2><%= @output["weather"][0]["description"] %></h2>
@@ -118,4 +121,5 @@
     <p><%= search[:search] %></p>
 <% end %>
 
+</section>
 
