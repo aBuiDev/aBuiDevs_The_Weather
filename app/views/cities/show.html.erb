@@ -1,4 +1,4 @@
-
+<%= @output %>
 
 <section class="currentWeatherSection">
     <section class="currentWeatherContainer">
@@ -8,71 +8,84 @@
         <h2>Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
 
         <img src="http://openweathermap.org/img/w/<%= @output["weather"][0]["icon"] %>.png">
-        <h2><%= @output["weather"][0]["description"] %></h2>
-        <h2><%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
-        <h2><%= (@output["main"]["feels_like"].to_f - 273.15).round(2) %>°C</h2>
-        <h2><%= (@output["main"]["temp_min"].to_f - 273.15).round(2) %>°C</h2>
-        <h2><%= (@output["main"]["temp_max"].to_f - 273.15).round(2) %>°C</h2>
-        <h2><%= @output["main"]["humidity"] %></h2>
 
+        <section class="currentWeatherMainOutput">
+            <h2>Description: <%= @output["weather"][0]["description"] %></h2>
+            <h2>Feels Like: <%= (@output["main"]["feels_like"].to_f - 273.15).round(2) %>°C</h2>
+            <h2>Min Temp: <%= (@output["main"]["temp_min"].to_f - 273.15).round(2) %>°C</h2>
+            <h2>Max Temp: <%= (@output["main"]["temp_max"].to_f - 273.15).round(2) %>°C</h2>
+            <h2>Humidity: <%= @output["main"]["humidity"] %>%</h2>
+        <section>
     </section>
 </section>
 
-<h2><%= @city %> 5 Day Forecast</h2>
+<section class="forecastTitleSection">
+    <h2><%= @city.capitalize %> 5 Day Forecast</h2>
+</section>
 
 <section class="forecastSection">
     <section class="forecastSectionMain">
         <div class="forecastOutputContainers">
-            <p><%= @total[9]["dt_txt"] %></p>
-            <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
-            <p><%= @total[9]["weather"][0]["description"] %></p>
-            <p><%= (@total[9]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[9]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[9]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
+            <div class="forecastOutputContainersMainInfo">
+                <p><%= @total[9]["dt_txt"] %></p>
+                <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
+                <p><%= @total[9]["weather"][0]["description"] %></p>
+            </div>
+            <p>Temperature: <%= (@total[9]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
+            <p>Min Temp: <%= (@total[9]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
+            <p>Max Temp: <%= (@total[9]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
             <p>Humidity: <%= @total[9]["main"]["humidity"] %>%</p>
         </div>
 
 
         <div class="forecastOutputContainers">
-            <p><%= @total[15]["dt_txt"] %></p>
-            <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
-            <p><%= @total[15]["weather"][0]["description"] %></p>
-            <p><%= (@total[15]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[15]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[15]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
+            <div class="forecastOutputContainersMainInfo">
+                <p><%= @total[15]["dt_txt"] %></p>
+                <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
+                <p><%= @total[15]["weather"][0]["description"] %></p>
+            </div>
+            <p>Temperature: <%= (@total[15]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
+            <p>Min Temp: <%= (@total[15]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
+            <p>Max Temp: <%= (@total[15]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
             <p>Humidity: <%= @total[15]["main"]["humidity"] %>%</p>
         </div>
 
 
         <div class="forecastOutputContainers">
-            <p><%= @total[25]["dt_txt"] %></p>
-            <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
-            <p><%= @total[25]["weather"][0]["description"] %></p>
-            <p><%= (@total[25]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[25]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[25]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
+            <div class="forecastOutputContainersMainInfo">
+                <p><%= @total[25]["dt_txt"] %></p>
+                <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
+                <p><%= @total[25]["weather"][0]["description"] %></p>
+            </div>
+            <p>Temperature: <%= (@total[25]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
+            <p>Min Temp: <%= (@total[25]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
+            <p>Max Temp: <%= (@total[25]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
             <p>Humidity: <%= @total[25]["main"]["humidity"] %>%</p>
         </div>
 
 
         <div class="forecastOutputContainers">
-            <p><%= @total[33]["dt_txt"] %></p>
-            <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
-            <p><%= @total[33]["weather"][0]["description"] %></p>
-            <p><%= (@total[33]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[33]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[33]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
+            <div class="forecastOutputContainersMainInfo">
+                <p><%= @total[33]["dt_txt"] %></p>
+                <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
+                <p><%= @total[33]["weather"][0]["description"] %></p>
+            </div>
+            <p>Temperature: <%= (@total[33]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
+            <p>Min Temperature: <%= (@total[33]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
+            <p>Max Temperature: <%= (@total[33]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
             <p>Humidity: <%= @total[33]["main"]["humidity"] %>%</p>
         </div>
 
 
         <div class="forecastOutputContainers">
-            <p><%= @total[39]["dt_txt"] %></p>
-            <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
-            <p><%= @total[39]["weather"][0]["description"] %></p>
-            <p><%= (@total[39]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[39]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
-            <p><%= (@total[39]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
+            <div class="forecastOutputContainersMainInfo">
+                <p><%= @total[39]["dt_txt"] %></p>
+                <div><img src="http://openweathermap.org/img/w/<%= @total[9]["weather"][0]["icon"] %>.png"></div>
+                <p><%= @total[39]["weather"][0]["description"] %></p>
+            </div>
+            <p>Temperature: <%= (@total[39]["main"]["temp"].to_f - 273.15).round(2) %>°C</p>
+            <p>Min Temp: <%= (@total[39]["main"]["temp_min"].to_f - 273.15).round(2) %>°C</p>
+            <p>Max Temp: <%= (@total[39]["main"]["temp_max"].to_f - 273.15).round(2) %>°C</p>
             <p>Humidity: <%= @total[39]["main"]["humidity"] %>%</p>
         </div>
     </section>

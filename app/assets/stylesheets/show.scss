@@ -1,38 +1,59 @@
 .currentWeatherSection {
-    width: 100%;
-    background-color: red;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
 }
 
 .currentWeatherContainer {
-    width: 1200px;
-    height: 500px;
-    background-color: blue;
+  width: 1200px;
+  margin: 15px;
+  background-color: blue;
+}
+
+.currentWeatherMainOutput {
+  display: flex;
+  flex-direction: row;
+}
+
+.forecastTitleSection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .forecastSection {
-    width: 100%;
-    background-color: red;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  background-color: red;
+  display: flex;
+  justify-content: center;
 }
 
 .forecastSectionMain {
-    width: 1200px;
-    background-color: blue;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+  width: 1200px;
+  background-color: blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .forecastOutputContainers {
-    margin: 25px 10px 0px 10px;
-    padding: 15px;
-    width: 200px;
-    background-color: lightblue;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
+  margin: 25px 10px 0px 10px;
+  padding: 15px;
+  width: 200px;
+  background-color: lightblue;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+.forecastOutputContainersMainInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0px 0px 15px 0px;
 }
