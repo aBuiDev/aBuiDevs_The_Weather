@@ -137,10 +137,18 @@
   width: 100px;
   height: 30px;
   text-align: center;
+  text-decoration: none;
+}
+
+.previousSearch:visited {
+  text-decoration: none;
 }
 
 .backButtonSection {
   width: 100%;
   display: flex;
   justify-content: center;
+}
+
+.color {
 }
