@@ -1,3 +1,10 @@
+.currentLocationMainElements {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0px 0px 25px 0px;
+}
+
 .currentLocationShowTitle {
   font-size: 50px;
   margin-bottom: 25px;
@@ -6,6 +13,11 @@
 
 .currentLocationShowTemp {
   text-align: center;
+}
+
+.currentLocationWeatherIcon {
+  text-align: center;
+  width: 100px;
 }
 
 .currentWeatherSection {
@@ -27,6 +39,7 @@
 }
 
 .forecastTitleSection {
+  margin: 25px 0px 25px 0px;
   display: flex;
   align-items: center;
   justify-content: center;

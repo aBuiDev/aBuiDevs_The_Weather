@@ -10,7 +10,7 @@
 
     <div style="background-color:<%= @color %>">
 
-        <div>
+        <div class="currentLocationMainElements">
             <h1 class="currentLocationShowTitle"><%= @city %> Weather</h1>
             <h2 class="currentLocationShowTemp">Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
             <img class="currentLocationWeatherIcon" src="http://openweathermap.org/img/w/<%= @output["weather"][0]["icon"] %>.png">
