@@ -20,23 +20,23 @@ class CitiesController < ApplicationController
         @output = JSON.parse(@response)
 
         # Current Weather Outputs
-        @temp = @output[:main.to_s][:temp.to_s]
-
-        # Forecast Weather
-        @forecast_url = "https://api.openweathermap.org/data/2.5/forecast?q=#{@city}&appid=b3de74108cc43d86835f3312a5074990"
-        @forecast_uri = URI(@forecast_url)
-        @forecast_response = Net::HTTP.get(@forecast_uri)
-        @forecast_output = JSON.parse(@forecast_response)
-
-        # Forecast Weather Outputs
-        @total = @forecast_output["list"]
-
-        add
         
-        if @output["weather"][0]["main"].to_s == "Clouds"
-            @color = "blue"
-        elsif @output["weather"][0]["main"].to_s == "Raining"
-            @color = "black"
+        @temp = nil
+
+        if @output["main"] && @output["main"]["temp"]
+            @temp = @output["main"]["temp"]
+    
+            # Forecast Weather
+            @forecast_url = "https://api.openweathermap.org/data/2.5/forecast?q=#{@city}&appid=b3de74108cc43d86835f3312a5074990"
+            @forecast_uri = URI(@forecast_url)
+            @forecast_response = Net::HTTP.get(@forecast_uri)
+            @forecast_output = JSON.parse(@forecast_response)
+
+            # Forecast Weather Outputs
+            @total = @forecast_output["list"]
+
+            add
+
         end
 
         @search = Search.order(id: :desc).limit(3)
