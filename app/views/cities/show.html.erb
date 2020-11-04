@@ -114,7 +114,7 @@
 <section class="previousSearchesSection">
     <div class="previousSearches">
         <% @search.each do | search | %>
-            <p class="previousSearch"><%= search[:search] %></p>
+            <a href="https://a-team-weather-app.herokuapp.com/cities/<%= search[:search] %>" class="previousSearch"><%= search[:search] %></a>
         <% end %>
     </div>
 </section>
