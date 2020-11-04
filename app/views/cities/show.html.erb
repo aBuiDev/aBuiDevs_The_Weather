@@ -11,22 +11,32 @@
     <div style="background-color:<%= @color %>">
 
         <div class="currentLocationMainElements">
-            <h1 class="currentLocationShowTitle"><%= @city %> Weather</h1>
-            <h2 class="currentLocationShowTemp">Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
             <img class="currentLocationWeatherIcon" src="http://openweathermap.org/img/w/<%= @output["weather"][0]["icon"] %>.png">
-            <h2>Description: <%= @output["weather"][0]["description"] %></h2>
+            <h1 class="currentLocationShowTitle"><%= @city %> Weather</h1>
+            <div class="currentLocationTempAndDescriptionSection">
+                <h2 class="currentLocationShowTemp">Current Temp: <%= (@output["main"]["temp"].to_f - 273.15).round(2) %>°C</h2>
+                <h2 class="currentLocationShowDescription">Description: <%= @output["weather"][0]["description"] %></h2>
+            </div>
         </div>
         <section class="currentWeatherMainOutput">
-            <h2>Feels Like: <%= (@output["main"]["feels_like"].to_f - 273.15).round(2) %>°C</h2>
-            <h2>Min Temp: <%= (@output["main"]["temp_min"].to_f - 273.15).round(2) %>°C</h2>
-            <h2>Max Temp: <%= (@output["main"]["temp_max"].to_f - 273.15).round(2) %>°C</h2>
-            <h2>Humidity: <%= @output["main"]["humidity"] %>%</h2>
+            <div class="currentWeatherOutputModule">
+                <h2>Feels Like: <%= (@output["main"]["feels_like"].to_f - 273.15).round(2) %>°C</h2>
+            </div>
+            <div class="currentWeatherOutputModule"v>
+                <h2>Min Temp: <%= (@output["main"]["temp_min"].to_f - 273.15).round(2) %>°C</h2>
+            </div>
+            <div class="currentWeatherOutputModule">
+                <h2>Max Temp: <%= (@output["main"]["temp_max"].to_f - 273.15).round(2) %>°C</h2>
+            </div>
+            <div class="currentWeatherOutputModule">
+                <h2>Humidity: <%= @output["main"]["humidity"] %>%</h2>
+            </div>
         <section>
     </section>
 </section>
 
 <section class="forecastTitleSection">
-    <h2><%= @city.capitalize %> 5 Day Forecast</h2>
+    <h2 class="fiveDayForecastTitleText"><%= @city.capitalize %> 5 Day Forecast</h2>
 </section>
 
 <section class="forecastSection">
@@ -97,17 +107,21 @@
     </section>
 </section>
 
-<%= link_to "Back", "/" %>
+<section class="previousSearchesTitleSection">
+    <h2 class="previousSearchesTitleText"> Recent Searches </h2>
+</section>
 
-<%= @dad_joke_output["setup"] %>
+<section class="previousSearchesSection">
+    <div class="previousSearches">
+        <% @search.each do | search | %>
+            <p class="previousSearch"><%= search[:search] %></p>
+        <% end %>
+    </div>
+</section>
 
-<%= @dad_joke_output["punchline"] %>
-
-<h2> Recent Searches </h2>
-
-<% @search.each do | search | %>
-    <p><%= search[:search] %></p>
-<% end %>
+<section class="backButtonSection">
+    <div class="backButton"><%= link_to "Back", "/" %></div>
+<section>
 
 </section>
 
